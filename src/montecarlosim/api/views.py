@@ -1,12 +1,12 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .serializers import PointsSerializer
-from .models import Points
+from .serializers import PointSerializer
+from .models import Point
 
 
-class PointsViewSet(viewsets.ModelViewSet):
+class PointViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = Points.objects.all()
-    serializer_class = PointsSerializer()
+    queryset = Point.objects.all()
+    serializer_class = PointSerializer

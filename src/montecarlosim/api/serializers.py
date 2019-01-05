@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Points
+from .models import Point
 
 
-class PointsSerializer(serializers.ModelSerializer):
+class PointSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Points
+        model = Point
         fields = ('x_point', 'y_point')

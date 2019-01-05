@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Points
+from .models import Point
 
-admin.site.register(Points)
+admin.site.register(Point)
