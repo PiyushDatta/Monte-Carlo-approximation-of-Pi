@@ -2,7 +2,9 @@ from random import random
 
 from django.core.management.base import BaseCommand
 
-from montecarlosim.api.models import Points
+from montecarlosim.api.models import Point
+
+from progress.bar import Bar
 
 
 class Command(BaseCommand):
@@ -10,15 +12,19 @@ class Command(BaseCommand):
     args = '<foo bar ...>'
     help = 'our help string comes here, implement after'
 
-    def _create_points(self, number_of_points=1000):
+    def _create_points(self, number_of_points=100000):
         """
         Creates number of Points objects in our db designated by number_of_points variable
         :param number_of_points: integer
         :return: None
         """
+        bar = Bar('Processing', max=number_of_points)
         for _ in range(number_of_points):
-            point = Points(x_point=generate_point(), y_point=generate_point())
+            point = Point(x_point=generate_point(), y_point=generate_point())
             point.save()
+            bar.next()
+
+        bar.finish()
 
     # TODO: Implement after
     def _flush_all_points(self):

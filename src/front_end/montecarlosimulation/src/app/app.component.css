@@ -1,0 +1,29 @@
+circle {
+  stroke: black;
+  stroke-width: 3;
+  fill: transparent;
+}
+
+rect {
+  stroke: black;
+  stroke-width: 3;
+  fill: transparent;
+}
+
+/*canvas {
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  height: 100%;
+  margin: 0px auto;
+  display: block;
+  border: 1px solid rgb(204, 204, 204);
+}*/
+
+/*button{
+    padding: 10px;
+    background: #ddd;
+    border: none;
+    border-bottom: solid 2px #ccc;
+    transition: background 0.3s;
+}*/

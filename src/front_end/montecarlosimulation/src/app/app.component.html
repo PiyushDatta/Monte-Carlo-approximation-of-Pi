@@ -3,13 +3,27 @@
   <h1>
         {{title}}
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li *ngFor="let point of points">
-    <h2>{{point.x_point}}</h2>
-  </li>
-</ul>
 
+  <body>
+    <svg id="simSvg" width="600" height="500">
+      <circle cx="300" cy="300" r="150" />
+      <rect x="150" y="150" width="300" height="300" />
+    </svg>
+    <!-- Maybe later try to do it with a canvas -->
+    <!--     <div id="demo">
+		<canvas id="myCanvas" height="500px" width="500px">
+		</canvas>
+	</div> -->
+    <div id="output">
+      <p><button id="startButton" type="button" (click)="startSimulation()">Start!</button></p>
+      <p><button id="resetButton" type="button" (click)="addASinglePoint()">Add a single point</button></p>
+      <p><button id="stopButton" type="button" (click)="stopSimulation()">Stop!</button></p>
+      <p><button id="resetButton" type="button" (click)="resetAndStartSimulation()">Reset!</button></p>
+      <p><button id="resetButton" type="button" (click)="resetSimulation()">Just reset, don't start</button></p>
+      <p>Points drawn: <span id="total">0</span></p>
+      <p>Points inside: <span id="inside">0</span></p>
+      <p>Pi: <span id="pi">0</span></p>
+    </div>
+  </body>
+</div>
 <router-outlet></router-outlet>
