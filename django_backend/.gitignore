@@ -1,0 +1,7 @@
+ToDo.txt
+.idea/
+src/.idea
+src/venv
+src/*.pyc
+src/staticfiles
+src/.env
