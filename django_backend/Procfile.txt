@@ -1,0 +1,2 @@
+web: gunicorn montecarlosim.wsgi --log-file -
+
