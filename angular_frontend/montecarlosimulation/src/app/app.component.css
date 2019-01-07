@@ -1,14 +1,15 @@
 circle {
   stroke: black;
-  stroke-width: 3;
+  stroke-width: 1;
   fill: transparent;
 }
 
 rect {
   stroke: black;
-  stroke-width: 3;
+  stroke-width: 1;
   fill: transparent;
 }
+
 
 /*canvas {
   width: 100%;
@@ -19,7 +20,12 @@ rect {
   display: block;
   border: 1px solid rgb(204, 204, 204);
 }*/
-
+button {
+  font-family: 'Texta-Regular', sans-serif;
+  background-color: #000000;
+  color: #fff;
+  display: inline-block;
+}
 /*button{
     padding: 10px;
     background: #ddd;

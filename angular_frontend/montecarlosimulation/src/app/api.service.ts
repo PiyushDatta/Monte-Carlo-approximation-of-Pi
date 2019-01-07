@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  baseurl = "http://127.0.0.1:8000"
+  baseurl = "https://montecarloapi.herokuapp.com"
+  // baseurl = "http://127.0.0.1:8000"
   httpHeaders = new HttpHeaders({'Content-type': 'application/json'})
 
   constructor(private http: HttpClient) { }
@@ -15,4 +16,5 @@ export class ApiService {
   getAllPoints(): Observable<any>{
   	return this.http.get(this.baseurl + '/apipoints/', {headers: this.httpHeaders});
   }
+
 }

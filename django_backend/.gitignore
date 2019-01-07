@@ -1,7 +1,5 @@
-ToDo.txt
-.idea/
-src/.idea
-src/venv
-src/*.pyc
-src/staticfiles
-src/.env
+venv
+*.pyc
+staticfiles
+.env
+*.sqlite3

@@ -12,9 +12,10 @@ class Command(BaseCommand):
     args = '<foo bar ...>'
     help = 'our help string comes here, implement after'
 
-    def _create_points(self, number_of_points=100000):
+    def _create_points(self, number_of_points=9500):
         """
-        Creates number of Points objects in our db designated by number_of_points variable
+        Creates number of Points objects in our db designated by number_of_points variable. 
+        Limit set to 9500 (heroku adds some extra lines to our 9500) because heroku's postgreSQL only allows 10k lines. :(
         :param number_of_points: integer
         :return: None
         """
