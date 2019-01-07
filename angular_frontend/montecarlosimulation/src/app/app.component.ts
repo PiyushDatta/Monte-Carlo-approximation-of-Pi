@@ -15,22 +15,29 @@ export class AppComponent {
   inside;
   stopped;
   i;
-  // this SVG contains our circle and box around it
-  originalSvg;
   // our variable to set interval, so the window won't freeze while looping through data
   intervalId
   // If they want to add only 1 dot
   singlePoint;
 
   constructor(private api: ApiService){
+    this.waitForLoad();
     this.i = 0;
     this.total = 0;
     this.inside = 0;
     this.stopped = false;
     this.singlePoint = false;
-    this.originalSvg = document.getElementById("simSvg");
   }
 
+  waitForLoad = () => {
+     window.onload = function() {
+      var c : any = document.getElementById("simCanvas");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(150, 150, 150, 0, 150);
+      ctx.stroke();
+    };
+  }
 
   getPoints = () => {
   	this.api.getAllPoints().subscribe(
@@ -107,9 +114,12 @@ export class AppComponent {
     document.getElementById('pi').innerHTML = " = [4*(total dots inside circle / total dots)] = " + String(0);
 
     // Delete all the drawn dots
-    while (document.getElementById('simSvg').childNodes.length > 2) {
-      document.getElementById('simSvg').removeChild(document.getElementById('simSvg').lastChild);
-    }
+    var c : any = document.getElementById("simCanvas");
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.beginPath();
+    ctx.arc(150, 150, 150, 0, 150);
+    ctx.stroke();
 
     this.i = 0;
   }
@@ -133,32 +143,28 @@ export class AppComponent {
   checkPoint = (x, y): any => {
 
     // Check where this position is
-    var num = (Math.sqrt(x * x + y * y))*300;
+    var num = (Math.sqrt(x ** 2 + y ** 2));
 
     // Check if it's inside the circle (so less than the radius of the circle which is 150)
-    var insideCircle = num < 150;
+    var insideCircle = num <= 1;
     console.log(num)
     console.log(insideCircle)
 
     this.total++;
-    
-    // Create a rect that looks like a dot
-    var currentPoint = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
-    currentPoint.setAttribute('x', String((x + 1) * 300));
-    currentPoint.setAttribute('y', String((y + 1) * 300));
-    currentPoint.setAttribute('width', String(1));
-    currentPoint.setAttribute('height', String(1));
-    currentPoint.setAttribute("style", "background-color: black;");
 
-    // If inside circle, we put the dot inside the circle and colour is yellow
+    // Get canvas
+    var c : any = document.getElementById("simCanvas");
+    var ctx = c.getContext("2d");
+
     if (insideCircle){
       this.inside++;
-      currentPoint.setAttribute('class', 'inside');
-      currentPoint.setAttribute("style", "background-color: yellow;");
     }
+    
 
-    // Append this dot to our SVG element
-    document.getElementById('simSvg').appendChild(currentPoint);
+    var centerX = c.width * x;
+    var centerY = c.height * y;
+
+    ctx.fillRect(centerX, centerY, 1, 1);
   }
 
 }

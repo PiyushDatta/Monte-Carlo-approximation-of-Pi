@@ -21,7 +21,7 @@ class Command(BaseCommand):
         """
         bar = Bar('Processing', max=number_of_points)
         for _ in range(number_of_points):
-            point = Point(x_point=generate_point(), y_point=generate_point())
+            point = Point(x_point=random(), y_point=random())
             point.save()
             bar.next()
 
@@ -39,15 +39,3 @@ class Command(BaseCommand):
         :return: None
         """
         self._create_points()
-
-
-def generate_point(length_of_field=1):
-    """
-    Generates a random float number.
-    :param length_of_field: int
-    :return: float
-    """
-    if isinstance(length_of_field, int):
-        return (.5 - random()) * length_of_field
-    else:
-        raise TypeError("length_of_field must be an integer")

@@ -5,24 +5,20 @@
   </h1>
 
   <body>
-    <svg id="simSvg" width="600" height="600">
-      <circle cx="300" cy="300" r="150" />
-      <rect x="150" y="150" width="300" height="300" />
-    </svg>
-    <!-- Maybe later try to do it with a canvas -->
-    <!--     <div id="demo">
-		<canvas id="myCanvas" height="500px" width="500px">
-		</canvas>
-	</div> -->
+    <canvas id="simCanvas" width="300" height="300" style="border: 1px solid rgb(217, 184, 156);">
+            Your browser does not support HTML5 Canvas!
+        </canvas>
+
     <div id="output">
-      <p><button id="startButton" type="button" (click)="startSimulation()">Start!</button><p>
-      <p><button id="resetButton" type="button" (click)="addASinglePoint()">Add a single point</button></p>
-      <p><button id="stopButton" type="button" (click)="stopSimulation()">Stop!</button></p>
-      <p><button id="resetButton" type="button" (click)="resetAndStartSimulation()">Reset!</button></p>
-      <p><button id="resetButton" type="button" (click)="resetSimulation()">Just reset, don't start</button></p>
-      <p>Points drawn: <span id="total">0</span></p>
-      <p>Points inside: <span id="inside">0</span></p>
-      <p>Pi<span id="pi"> = [4*(total dots inside circle / total dots)] = 0</span></p>
+      <p><button id="startButton" type="button" (click)="startSimulation()">Start!</button>
+        <p>
+          <p><button id="resetButton" type="button" (click)="addASinglePoint()">Add a single point</button></p>
+          <p><button id="stopButton" type="button" (click)="stopSimulation()">Stop!</button></p>
+          <p><button id="resetButton" type="button" (click)="resetAndStartSimulation()">Reset!</button></p>
+          <p><button id="resetButton" type="button" (click)="resetSimulation()">Just reset, don't start</button></p>
+          <p>Points drawn: <span id="total">0</span></p>
+          <p>Points inside: <span id="inside">0</span></p>
+          <p>Pi<span id="pi"> = [4*(total dots inside circle / total dots)] = 0</span></p>
     </div>
   </body>
 </div>
