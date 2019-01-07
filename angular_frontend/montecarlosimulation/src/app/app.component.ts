@@ -102,6 +102,8 @@ export class AppComponent {
 
   // Reset the simulation
   resetSimulation = (): void => {
+    this.stopSimulation();
+    
     // Clear our interval
     clearInterval(this.intervalId);
     this.intervalId = null;
